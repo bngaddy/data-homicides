@@ -105,7 +105,6 @@ Homicides_arrests <- homicide_data %>%
 
 one_out_of_four<- (Homicides_number/Homicides_arrests)
 
-
 # Display results of code below this codeblock
 
 Homicides_number
