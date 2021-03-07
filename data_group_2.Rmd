@@ -107,6 +107,7 @@ one_out_of_four<- (Homicides_number/Homicides_arrests)
 
 # Display results of code below this codeblock
 
+
 Homicides_number
 Homicides_arrests
 one_out_of_four
