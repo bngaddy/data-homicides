@@ -89,7 +89,7 @@ In this notebook, we are reverse engineering five sentences from the story.
 ### Sentence 5
 
 * **Sentence text**: [Community leaders and residents say that leaves hundreds of families who have been robbed of a loved one without a chance at seeing justice done. Of the 1,002 homicides between 2015 and the beginning of this year, just 252 — one out of every four — resulted in an arrest.]
-* **Analysis summary**: [I was able to confirm The Post's findings. There were 1,005 homicides in Baltimore between the beginning of 2015 and 2016. Only 252 of those homicides were "closed by arrest." So one out of every four Baltimore homicides resulted in an arrest.]
+* **Analysis summary**: [I was able to confirm The Post's findings. There were 1,005 homicides in Baltimore between the beginning of 2015 and 2016. Only 252 of those homicides were "closed by arrest." So between the beginning of 2015 and 2016, one out of every four Baltimore homicides resulted in an arrest.]
 
 ```{r}
 # Put code to reverse engineer sentence here
