@@ -1,0 +1,115 @@
+---
+title: "Data Analysis 01 Template"
+author: "Brittany N. Gaddy"
+date: "3/2/2021"
+output:
+  html_document:
+    theme: cerulean
+    highlight: pygments
+    toc: true
+    toc_float:
+      collapsed: true
+      smooth_scroll: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction 
+
+In this notebook, we are reverse engineering The Washington Post story, As police struggle to solve homicides, Baltimore residents see an ‘open season for killing’ (https://www.washingtonpost.com/investigations/as-police-struggle-to-solve-homicides-baltimore-residents-see-an-open-season-for-killing/2018/12/26/7ee561e4-fb24-11e8-8c9a-860ce2a8148f_story.html)
+
+## Load libraries
+
+Loading required libraries for this analysis.
+
+```{r}
+library(tidyverse)
+library(vembedr)
+library(dplyr)
+```
+
+## Load and Cleaning Data
+
+[In this block of text, describe the source of the data, and write a basic data dictionary for data you are working with]
+
+```{r}
+# Load required data
+homicide_data <- read.csv("data/homicide-data.csv")
+
+homicide_data
+
+# Clean required data and prepare for analysis if needed. 
+```
+
+## Sentences to Engineer
+In this notebook, we are reverse engineering five sentences from the story.
+
+### Sentence 1
+
+* **Sentence text**: [Paste in sentence to engineer here]
+* **Analysis summary**: [Write up two to three sentences describing the results of your analysis.  Were you able to confirm the finding? If not, why not?]
+
+```{r}
+# Put code to reverse engineer sentence here
+# Display results of code below this codeblock
+```
+
+### Sentence 2
+
+* **Sentence text**: [Paste in sentence to engineer here]
+* **Analysis summary**: [Write up two to three sentences describing the results of your analysis.  Were you able to confirm the finding? If not, why not?]
+
+```{r}
+# Put code to reverse engineer sentence here
+# Display results of code below this codeblock
+```
+
+### Sentence 3
+
+* **Sentence text**: [Paste in sentence to engineer here]
+* **Analysis summary**: [Write up two to three sentences describing the results of your analysis.  Were you able to confirm the finding? If not, why not?]
+
+```{r}
+# Put code to reverse engineer sentence here
+# Display results of code below this codeblock
+```
+
+### Sentence 4
+
+* **Sentence text**: [Paste in sentence to engineer here]
+* **Analysis summary**: [Write up two to three sentences describing the results of your analysis.  Were you able to confirm the finding? If not, why not?]
+
+```{r}
+# Put code to reverse engineer sentence here
+# Display results of code below this codeblock
+```
+
+### Sentence 5
+
+* **Sentence text**: [Community leaders and residents say that leaves hundreds of families who have been robbed of a loved one without a chance at seeing justice done. Of the 1,002 homicides between 2015 and the beginning of this year, just 252 — one out of every four — resulted in an arrest.]
+* **Analysis summary**: [I was able to confirm The Post's findings. There were 1,005 homicides in Baltimore between the beginning of 2015 and 2016. Only 252 of those homicides were "closed by arrest." So one out of every four Baltimore homicides resulted in an arrest.]
+
+```{r}
+# Put code to reverse engineer sentence here
+Homicides_number <- homicide_data %>%
+  select(reported_date,city,disposition)%>%
+  filter(city =="Baltimore", reported_date >= 20150101)%>%
+  summarise(number_of_homicides=n())
+  
+Homicides_arrests <- homicide_data %>%
+  select(reported_date,city,disposition)%>%
+  filter(city =="Baltimore", reported_date >= 20150101, disposition=="Closed by arrest")%>%
+  summarise(number_of_homicides_arrests=n())
+
+one_out_of_four<- (Homicides_number/Homicides_arrests)
+
+# Display results of code below this codeblock
+
+Homicides_number
+Homicides_arrests
+one_out_of_four
+```
+
+-30-
